@@ -46,7 +46,12 @@
     "msw": "^0.35.0"
   },
   "engines": {
-    "node": "16.19.1",
-    "npm": "8.19.3"
-  }
+    "node": "18.15.0",
+    "npm": "9.5.0"
+  },
+  "description": "![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
