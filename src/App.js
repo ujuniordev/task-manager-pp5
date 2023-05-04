@@ -23,7 +23,7 @@ class App extends Component {
 
   refreshList = () => {
     axios
-      .get("https://8000-ujuniordev-drftaskmanag-kgh15g7wk58.ws-eu96b.gitpod.io/api/todos/")
+      .get("https://task-manager-pp5.herokuapp.com//api/todos/")
       .then((res) => this.setState({ todoList: res.data }))
       .catch((err) => console.log(err));
   };
