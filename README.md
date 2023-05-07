@@ -1,100 +1,115 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Task Manager
+## Project Portfolio 5
 
-Welcome,
+[Frontend: Link to the deployed Heroku app](https://task-manager-pp5.herokuapp.com/)
 
-This is the Code Institute student template for React apps on the Codeanywhere IDE. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[Frontend: Link to the GitHub repository](https://github.com/ujuniordev/task-manager-pp5/)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **19th April, 2023**
+[Backend: Link to the deployed Heroku app](https://drf-task-manager.herokuapp.com/)
 
-## Codeanywhere Reminders
+[Backend: Link to the GitHub repository](https://github.com/ujuniordev/drf-task-manager/)
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
+Task Manager application
+## About the website
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+The task manager application was develop to provide the user with a tool to help him manage his daily tasks easily and quickly.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
----
+## User experience
 
-Happy coding!
+With a clean, simple and intuitive interface to easily guide the user, the site allows the user to create tasks, edit tasks, check his list of tasks and delete tasks.
 
-# Getting Started with Create React App
+The user stories that were used to develop the site are listed below:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ - **US 01 Add Task**
+As a **desktop and mobile user,** I want to **create a task** so that **I can have a list of tasks**.
+- **US #02 Update a Task**
+As a **desktop and mobile user**, I want to **have an option to update a task** so that **I can change requirements if needed**.
+- **US #03 delete a task**
+As a **desktop and mobile user**, I want to **have an option to delete a task** so that **I can remove unnecessary tasks from my list**.
+- **US #04 Filter Tasks**
+As a **desktop and mobile user**, I want to **filter tasks by status** so that **I can easily view what's completed and in progress**.
+- **US #05 View List of Tasks**
+As a **desktop and mobile user**, I want to **view the list of tasks** so that **I can easily see all tasks on the list**.
+- **US #06 Register**
+As a **desktop and mobile user**, I want to **have an option to register** so that **I can have an account in the task manager**.
+- **US #07 Login**
+As a **desktop and mobile user**, I want to **have an option to login** so that **I can have access to my account**.
+- **US #08 Update Account Details**
+As a **desktop and mobile user**, I want to **have an option to update details** so that **I can keep my details up to date in my account**.
+- **US #09 Delete Account**
+As a **desktop and mobile user**, I want to **have an option to delete account** so that **I can close my account if needed/wanted**.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+This website contains the following features/pages that were developed considering the user's stories listed in the section User experience above, they should all have responsive behavior allowing navigation on any device. Not all features were developed. The agile MoSCoW method was used to define which of the features would be implemented.
+- **F#01 add task (using US#01)**
+The add task button is the main feature of the tasks manager, and it will allow users to list their tasks to be done. When clicking on the add task button a modal window open where the user can add
+- **F#02 list of tasks (using US#02, US#03, US#05)**
+The list of tasks displays all tasks created on the app manager by that user, and has 3 main functions: view the list of items, update an item and delete an item.
+The user is presented with a list of items that contain the button update - that will open a modal window that allows the users to update the task details and save, and the button delete - that after clicked will immediately delete the task from the list.
+- **F#03 filter of tasks (using US#04)**
+The filter of tasks is just a filter that has 2 options: completed and incomplete. By clicking on the options the list is automatically updated to display the right tasks.
+- **F#04 register & login (using US#06, US#07)**
+When entering the app, the user is presented with 2 options: register & login. By clicking on register the user will view a form to input all details needed to create an account. By clicking on login the user will be redirected to the login form, where he/she will input login and password to access the app.
+- **F#05 update account (using US#08)**
+On the account details page the user has the option to update the account details by simply updating the content on the input fields and clicking save.
+- **F#06 delete account (using US#09)**
+On the account details page the user has the option to delete the account by simply clicking on the delete button.
 
-### `npm install`
+### Features to be implemented
+Many features have not been implemented due to reasons, like the authentication part of the website which was developed but broke the application so it had to be removed. Also, a new module with a contact form should be implemented in a future release, together with the authentication part.
 
-Installs the required npm packages.
+## Design
 
-### `npm start`
+The focus was on providing a clean intuitive interface making it clear for the user where his input was requested. 
 
-Runs the app in the development mode.\
-Open port 3000 to view it in the browser.
+## Technologies
+ - HTML
+ - JSX
+ - CSS
+ - Python
+ - JavaScript
+ 
+## Frameworks, Programs and code websites references used during the implementation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Frameworks
 
-### `npm test`
+- [Git](https://git-scm.com/) was used for version control through [Gitpod](https://gitpod.io/) terminal, using CLI git commands to commit and push to GitHub
+- [GitHub](https://github.com/) is used as the repository for the entire project
+- [Heroku](https://www.heroku.com/) was used to deploy the application as it runs on the terminal
+- [Bootstrap](https://getbootstrap.com/) was used for design, content positioning and styling.
+- [Reactstrap](https://reactstrap.github.io/) together with bootstrap was used for design, content positioning and styling.
+- [Django Rest Framework](https://www.django-rest-framework.org/) was the main backend development framework.
+- [React.js](https://react.dev/) was used to develop the front end of the web application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Code
 
-### `npm run build`
+- During the implementation of the website, it was made necessary to look for examples and of code and different ways to achieve the required goal. Therefore a couple of community websites were used, such as the [W3C Schools website](https://www.w3schools.com/) that was extensively used to check the syntax and code examples
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Django Rest Framework](https://www.django-rest-framework.org/) documentation was often consulted to check code syntax and other functions.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Stack Overflow](https://stackoverflow.com/) was also referenced to check Python function methods and iteration methods and to help understand and fix issues witht he code
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- And of course, the [Code Institute LMS](https://learn.codeinstitute.net/) was extensively used especially the Codestar blog walkthrough project.
+- With the help from [Real Python](https://realpython.com/django-social-network-1/), [Digital Ocean](https://www.digitalocean.com/) and [SAASitive](https://saasitive.com/) I was able to build most of the features of the website.
 
-### `npm run eject`
+## Testing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The testing plan was based on the features described for the website.
+![Testing](testing/testing.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The project was deployed using the Heroku mock terminal from Code Institue. The steps for deployment are as follows:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Create a new repository in GitHub
+- Create new workspace by clicking 'Gitpod' button.
+- Once the workspace has loaded, run terminal command  **npx create-react-app . --use-npm**  to create React app.  
+- Once the app is installed, run terminal command  **npm start**  to check app is working. Browser should open with the spinning React logo on a dark blue background.  
+- Confirm the changes have rendered in the browser preview then add, commit and push changes.
+- Log in to Heroku and create new app".
+- Click on the 'Deploy' tab and go to 'Deployment Method'. Click on GitHub.
+- Go to 'Manual Deploy' section and click 'Deploy Branch'. Click on 'build logs' to monitor build and ensure deployment is successful. Build is complete when log states 'Build succeeded!'. 
+- Click 'Open App' button to view newly deployed app.
