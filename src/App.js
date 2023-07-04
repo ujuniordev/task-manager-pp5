@@ -17,7 +17,7 @@ function App() {
                   <div>SignIn Component</div>
                 </Route>
                 <Route path="/signup">
-                <div>SignOut Component</div>
+                  <div>SignOut Component</div>
                 </Route>
                 <Route path="/">
                   <TodoList />
