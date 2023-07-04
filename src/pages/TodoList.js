@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Modal from "../components/Modal";
 import axios from "axios";
 import "../api/axiosDefaults";
+import Context from "../Context";
 
 function TodoList() {
   const [viewCompleted, setViewCompleted] = useState(false);
@@ -13,30 +14,41 @@ function TodoList() {
     completed: false,
   });
 
+  const [appState, setAppState] = useContext(Context);
+
+  const updateLoadingState = (isLoading) => {
+    setAppState({ ...appState, loading: isLoading });
+  };
+
   useEffect(() => {
     refreshList();
   }, []);
 
-  const refreshList = () => {
-    axios
+  const refreshList = async () => {
+    updateLoadingState(true);
+    await axios
       .get("/api/todos/")
-      .then((res) => setTodoList(res.data))
+      .then((res) => {
+        setTodoList(res.data);
+      })
       .catch((err) => console.log(err));
+
+    updateLoadingState(false);
   };
 
   const handleSubmit = (item) => {
     setShowModal(false);
+    updateLoadingState(true);
 
     if (item.id) {
-      axios.put(`/api/todos/${item.id}/`, item).then((res) => {
-        refreshList();
-      });
+      axios.put(`/api/todos/${item.id}/`, item).then((res) => refreshList());
       return;
     }
     axios.post("/api/todos/", item).then((res) => refreshList());
   };
 
   const handleDelete = (item) => {
+    updateLoadingState(true);
     axios.delete(`/api/todos/${item.id}/`).then((res) => refreshList());
   };
 
