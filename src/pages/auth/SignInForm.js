@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Form, FormGroup, Label, Input, Button, Alert } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import axios from "../../api/axiosInstance";
@@ -11,7 +11,7 @@ function SignInForm() {
     username: "",
     authpassword: "",
   });
-  const { username, authpassword } = signInData;
+  const { username, password } = signInData;
 
   const [errors, setErrors] = useState({});
 
@@ -57,7 +57,7 @@ function SignInForm() {
           id="username"
           name="username"
           value={username}
-          placeholder="User Name"
+          placeholder="Username"
           type="text"
           onChange={handleChange}
         />

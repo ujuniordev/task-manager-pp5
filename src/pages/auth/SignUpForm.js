@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Button, Alert } from "reactstrap";
 import axios from "axios";
+import Context from "../../Context";
 
 const SignUpForm = () => {
+  const [appState, setAppState] = useContext(Context);
+
   const [signUpData, setSignUpData] = useState({
     username: "",
-    password: "",
-    confirmpassword: "",
+    password1: "",
+    password2: "",
   });
-  const { username, password, confirmpassword } = signUpData;
+  const { username, password1, password2 } = signUpData;
 
   const [errors, setErrors] = useState({});
 
@@ -25,24 +28,26 @@ const SignUpForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      setAppState({ ...appState, loading: true });
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
     } catch (err) {
       setErrors(err.response?.data);
     }
+    setAppState({ ...appState, loading: false });
   };
 
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
         <Label for="username" hidden>
-          User Name
+          Username
         </Label>
         <Input
           id="username"
           name="username"
           value={username}
-          placeholder="User Name"
+          placeholder="Username"
           type="text"
           onChange={handleChange}
         />
@@ -51,52 +56,54 @@ const SignUpForm = () => {
         <Alert color="warning" key={idx}>
           {message}
         </Alert>
-      ))}
-      {" "}
+      ))}{" "}
       <FormGroup>
-        <Label for="password" hidden>
+        <Label for="password1" hidden>
           Password
         </Label>
         <Input
-          id="password"
-          name="password"
-          value={password}
+          id="password1"
+          name="password1"
+          value={password1}
           placeholder="Password"
           type="password"
           onChange={handleChange}
         />
       </FormGroup>
-      {errors.password?.map((message, idx) => (
+      {errors.password1?.map((message, idx) => (
         <Alert color="warning" key={idx}>
           {message}
         </Alert>
-      ))}
-      {" "}
+      ))}{" "}
       <FormGroup>
-        <Label for="confirmpassword" hidden>
+        <Label for="password2" hidden>
           Repeat Password
         </Label>
         <Input
-          id="confirmpassword"
-          name="confirmpassword"
-          value={confirmpassword}
+          id="password2"
+          name="password2"
+          value={password2}
           placeholder="Confirm Password"
-          type="confirmpassword"
+          type="password"
           onChange={handleChange}
         />
       </FormGroup>
-      {errors.confirmpassword?.map((message, idx) => (
+      {errors.password2?.map((message, idx) => (
         <Alert color="warning" key={idx}>
           {message}
         </Alert>
-      ))}
-      {" "}
-      <Button type="submit">Sign Up</Button>
+      ))}{" "}
       {errors.non_field_errors?.map((message, idx) => (
-              <Alert key={idx} color="warning" className="mt-3">
-                {message}
-              </Alert>
-            ))}
+        <Alert key={idx} color="warning" className="mt-3">
+          {message}
+        </Alert>
+      ))}
+      <Button color="link" onClick={() => history.push("/signin")}>
+        Sign In
+      </Button>
+      <Button type="submit" color="primary">
+        Sign Up
+      </Button>
     </Form>
   );
 };
