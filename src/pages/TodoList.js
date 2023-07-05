@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Modal from "../components/Modal";
 import axios from "../api/axiosInstance";
-import "../api/axiosInstance";
 import Context from "../Context";
 
 function TodoList() {
