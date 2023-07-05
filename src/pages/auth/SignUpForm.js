@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Button, Alert } from "reactstrap";
-import axios from "axios";
+import axios from "../../api/axiosInstance";
 import Context from "../../Context";
 
 const SignUpForm = () => {
@@ -34,6 +34,7 @@ const SignUpForm = () => {
     } catch (err) {
       setErrors(err.response?.data);
     }
+
     setAppState({ ...appState, loading: false });
   };
 

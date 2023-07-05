@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Form, FormGroup, Label, Input, Button, Alert } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import axios from "../../api/axiosInstance";
@@ -9,7 +9,7 @@ function SignInForm() {
 
   const [signInData, setSignInData] = useState({
     username: "",
-    authpassword: "",
+    password: "",
   });
   const { username, password } = signInData;
 
@@ -51,7 +51,7 @@ function SignInForm() {
     <Form onSubmit={handleSubmit}>
       <FormGroup>
         <Label for="username" hidden>
-          User Name
+          Username
         </Label>
         <Input
           id="username"
