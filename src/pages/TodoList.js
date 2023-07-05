@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Modal from "../components/Modal";
-import axios from "axios";
+import axios from "../api/axiosInstance";
 import "../api/axiosInstance";
 import Context from "../Context";
 
@@ -87,6 +87,10 @@ function TodoList() {
     const filteredItems = todoList.filter(
       (item) => item.completed === viewCompleted
     );
+
+    if (!filteredItems.length) {
+      return <p className="mt-5 text-center">There is no task to show.</p>;
+    }
 
     return filteredItems.map((item) => (
       <li
