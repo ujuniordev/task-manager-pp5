@@ -6,7 +6,7 @@ import Context from "../../Context";
 
 function SignInForm() {
   const [appState, setAppState] = useContext(Context);
-  
+
   const [signInData, setSignInData] = useState({
     username: "",
     authpassword: "",
@@ -20,11 +20,14 @@ function SignInForm() {
     event.preventDefault();
 
     try {
+      setAppState({ ...appState, loading: true });
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
-      setCurrentUser(data.user)
+      setAppState({ loading: false, user: data.user });
+      localStorage.setItem("tmng-user", JSON.stringify(data.user));
       history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
+      setAppState({ loading: false, user: null });
     }
   };
 
@@ -35,52 +38,66 @@ function SignInForm() {
     });
   };
 
+  useEffect(() => {
+    const localUserData = localStorage.getItem("tmng-user");
+
+    if (localUserData) {
+      setAppState({ ...appState, user: JSON.parse(localUserData) });
+      history.push("/");
+    }
+  }, []);
+
   return (
-    <Form>
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <Label for="username" hidden>
-            User Name
-          </Label>
-          <Input
-            id="username"
-            name="username"
-            value={username}
-            placeholder="User Name"
-            type="text"
-            onChange={handleChange}
-          />
-        </FormGroup>{" "}
-        {errors.username?.map((message, idx) => (
-          <Alert key={idx} color="warning">
-            {message}
-          </Alert>
-        ))}
-        <FormGroup>
-          <Label for="authpassword" hidden>
-            Password
-          </Label>
-          <Input
-            id="authpassword"
-            name="authpassword"
-            value={authpassword}
-            placeholder="Password"
-            type="password"
-            onChange={handleChange}
-          />
-        </FormGroup>
-        {errors.authpassword?.map((message, idx) => (
-          <Alert key={idx} color="warning">
-            {message}
-          </Alert>
-        ))}{" "}
-        <Button type="submit">Sign In</Button>
-        {errors.non_field_errors?.map((message, idx) => (
-          <Alert key={idx} color="warning" className="mt-3">
-            {message}
-          </Alert>
-        ))}
-      </Form>
+    <Form onSubmit={handleSubmit}>
+      <FormGroup>
+        <Label for="username" hidden>
+          User Name
+        </Label>
+        <Input
+          id="username"
+          name="username"
+          value={username}
+          placeholder="User Name"
+          type="text"
+          onChange={handleChange}
+        />
+      </FormGroup>{" "}
+      {errors.username?.map((message, idx) => (
+        <Alert key={idx} color="warning">
+          {message}
+        </Alert>
+      ))}
+      <FormGroup>
+        <Label for="password" hidden>
+          Password
+        </Label>
+        <Input
+          id="password"
+          name="password"
+          value={password}
+          placeholder="Password"
+          type="password"
+          onChange={handleChange}
+        />
+      </FormGroup>
+      {errors.password?.map((message, idx) => (
+        <Alert key={idx} color="warning">
+          {message}
+        </Alert>
+      ))}{" "}
+      {errors.non_field_errors?.map((message, idx) => (
+        <Alert key={idx} color="warning" className="mt-3">
+          {message}
+        </Alert>
+      ))}
+      <div className="buttons">
+        <Button color="link" onClick={() => history.push("/signup")}>
+          Sign Up
+        </Button>
+        <Button type="submit" color="primary">
+          Sign In
+        </Button>
+      </div>
     </Form>
   );
 }
