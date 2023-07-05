@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Form, FormGroup, Label, Input, Button, Alert } from "reactstrap";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
-import { SetCurrentUserContext } from "../../App";
+import axios from "../../api/axiosInstance";
+import Context from "../../Context";
 
 function SignInForm() {
-  const setCurrentUser = useContext(SetCurrentUserContext);
-
+  const [appState, setAppState] = useContext(Context);
+  
   const [signInData, setSignInData] = useState({
     username: "",
     authpassword: "",
