@@ -97,12 +97,6 @@ function App() {
                         checkuser ? <Profile /> : <Redirect to="/signin" />
                       }>
                     </Route>
-                    <Route 
-                      path="/contact"
-                      render={() =>
-                        checkuser ? <Contact /> : <Redirect to="/signin" />
-                      }>
-                    </Route>
                     <Route
                       path="/"
                       render={() =>
