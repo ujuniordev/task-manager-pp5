@@ -24,6 +24,7 @@ function SignInForm() {
       const { data } = await axios.post("dj-rest-auth/login/", signInData);
       setAppState({ loading: false, user: data.user });
       localStorage.setItem("tmng-user", JSON.stringify(data.user));
+      localStorage.setItem("token", JSON.stringify(data.access_token));
       history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
