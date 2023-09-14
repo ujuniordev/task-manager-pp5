@@ -173,6 +173,32 @@ Generate time reports or charts for analysis.
 Set long-term goals and break them down into tasks.
 Visualize progress toward goals.
 
+# Frontend components 
+
+## **React.js**
+
+React.js, commonly referred to as React, is an open-source JavaScript library used for building user interfaces (UIs). Developed and maintained by Facebook, React has gained widespread popularity in the world of web development for its efficiency, flexibility, and component-based architecture. It allows developers to create interactive and dynamic web applications with ease and that is why it was chosen to be used in this task manager application.
+
+### **The Key Components used are listed below**
+
+1.  **Modal for Task Management:**
+    
+    -   A modal is a pop-up window that appears within the application's interface, typically used for task creation, editing, or additional task details. In this application, the modal component provides a user-friendly way to interact with tasks, allowing users to add, edit, and view task details without leaving the current page.
+2.  **Navbar (Appears on All Pages):**
+    
+    -   The navbar is a crucial component of this application's user interface, as it provides navigation and access to the home page and the logout option. It should appear consistently on all pages to ensure easy and intuitive navigation for users. 
+3.  **Todo List (Task List):**
+    
+    -   The todo list component is the heart of this task management application. It displays all the tasks users have created, providing a clean and organized view of tasks based on the filter completed or incomplete. Users can interact with tasks directly from the todo list, marking them as complete, editing task details, or deleting tasks.
+4.  **Sign-In Page:**
+    
+    -   The sign-in page is where users can log in to their accounts. It includes the input fields for usernames and passwords, along with a registration link for new users. After successfully signing in, users gain access to their task lists and their profile.
+5.  **Registration Page:**
+    
+    -   The registration page allows new users to create accounts. It includes fields for entering necessary information such as username and password. After registering, users can start using the application and managing their tasks.
+
+In this React-based task management application, React's component-based architecture proved to be beneficial. Each of these key components, such as the modal, navbar, todo list, sign-in page, and registration page, were designed and developed as individual React components. This modularity and reusability helps to create a well-structured, maintainable, and responsive user interface.
+
 ## Technologies
 
 The development of the task management app involved the use of several technologies to create a robust and interactive user interface, as well as to handle the underlying functionality. The following technologies were chosen for their effectiveness, versatility, and compatibility with the project requirements:
