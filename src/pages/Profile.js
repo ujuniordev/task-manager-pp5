@@ -65,7 +65,7 @@ const Profile = () => {
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label for="Owner" hidden>
-                Owner
+                Username
                 </Label>
                 <Input
                 id="owner"
