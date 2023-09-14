@@ -7,10 +7,12 @@ import {
   Redirect,
 } from "react-router-dom";
 import Context from "./Context";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import SignInForm from "./pages/auth/SignInForm";
 import SignUpForm from "./pages/auth/SignUpForm";
+import Profile from "./pages/Profile";
+import Contact from "./pages/Contact";
 import axios from "./api/axiosInstance";
 
 function App() {
@@ -23,6 +25,21 @@ function App() {
     setAppState({ loading: false, user: null });
   };
 
+  const profile = () => {
+    window.location = "/profile";
+  };
+
+  const contact = () => {
+    window.location = "/contact";
+  }
+
+  const checkuser = () => {
+    const localUserData = localStorage.getItem("tmng-user");
+    if (localUserData) {
+      return true;
+    }
+    return false
+  }
   return (
     <div className="task-manager">
       <Navbar className="mb-5" color="dark" dark>
@@ -30,6 +47,20 @@ function App() {
         {appState.user && (
           <Nav className="ml-auto" navbar>
             <NavItem>
+              <Button
+                color="link"
+                style={{ color: "#fff" }}
+                onClick={profile}
+              >
+                Profile
+              </Button>
+              <Button
+                color="link"
+                style={{ color: "#fff" }}
+                onClick={contact}
+              >
+                Contact
+              </Button>
               <Button
                 color="link"
                 onClick={logoutUser}
@@ -54,11 +85,23 @@ function App() {
               <Context.Provider value={[appState, setAppState]}>
                 <Router>
                   <Switch>
-                    <Route path="/signin">
-                      <SignInForm />
-                    </Route>
-                    <Route path="/signup">
+                    <Route exact path="/signup">
                       <SignUpForm />
+                    </Route>
+                    <Route exact path="/signin">
+                      <SignInForm />
+                    </Route>                    
+                    <Route 
+                      path="/profile"
+                      render={() =>
+                        checkuser ? <Profile /> : <Redirect to="/signin" />
+                      }>
+                    </Route>
+                    <Route 
+                      path="/contact"
+                      render={() =>
+                        checkuser ? <Contact /> : <Redirect to="/signin" />
+                      }>
                     </Route>
                     <Route
                       path="/"
