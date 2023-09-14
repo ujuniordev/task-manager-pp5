@@ -8,6 +8,7 @@ function TodoList() {
   const [todoList, setTodoList] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [activeItem, setActiveItem] = useState({
+    owner: null,
     title: "",
     description: "",
     completed: false,
@@ -52,7 +53,7 @@ function TodoList() {
   };
 
   const createItem = () => {
-    const item = { title: "", description: "", completed: false };
+    const item = { owner: appState.user.pk, title: "", description: "", completed: false };
 
     setActiveItem(item);
     setShowModal(true);
@@ -84,7 +85,7 @@ function TodoList() {
 
   const renderItems = () => {
     const filteredItems = todoList.filter(
-      (item) => item.completed === viewCompleted
+      (item) => item.completed === viewCompleted && item.owner === appState.user.pk
     );
 
     if (!filteredItems.length) {
