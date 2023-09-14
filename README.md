@@ -23,6 +23,10 @@ The main goal of this app is to provide users with an easy way to manage their t
 - Updating tasks
 - Viewing a list of tasks
 - Deleting tasks
+- Viewing own profile
+- Updating own profile
+- Deleting own profile
+- Contact form
 
 
 The development of the site was based on the following user stories:
@@ -54,6 +58,9 @@ As a **desktop and mobile user**, I want the option to **update my account detai
 - **US #09 Delete Account**
 
 As a **desktop and mobile user**, I want the option to **delete my account** so that **I can close it if necessary or desired**.
+- **US #10 Contact me form**
+
+As a **desktop and mobile user**, I want the option to **contact the application support** so that **I can clarify questions or report any issue**.
 
 By focusing on these user stories and their corresponding features, the app ensures a user-friendly experience that allows for efficient task management and account customization.
 
@@ -62,7 +69,7 @@ Creating a design that offers a clean and intuitive interface, while ensuring cl
 
 One of the key aspects in achieving a cohesive and visually appealing design was the utilization of Bootstrap elements as the primary source of color, fonts, and text choices. Bootstrap, a popular front-end framework, provided a robust set of pre-defined styles and components that seamlessly integrated into the design system.
 
-For the color scheme, Bootstrap's predefined color palette was employed to maintain consistency throughout the interface. By leveraging the Bootstrap color classes, harmonious shades were applied to different interface elements, ensuring a visually balanced and pleasing experience for users.
+For the color scheme, Bootstrap's predefined color palette was employed to maintain consistency throughout the interface. By leveraging the Bootstrap color classes, harmonious shades were applied to different interface elements, ensuring a visually balanced and pleasing experience for users. Colors used: Very dark grayish blue for the navbar, blue for the buttons and red for the incomplete tasks' tab placed on a white background.
 
 In terms of typography, Bootstrap's extensive collection of fonts and text styles played a vital role in creating a cohesive design language. The carefully selected fonts not only ensured legibility and readability but also added a touch of elegance to the overall aesthetic. The use of font classes and utility styles from Bootstrap made it effortless to maintain consistency across different sections of the interface.
 
@@ -101,6 +108,10 @@ On the account details page, users have the ability to update their account info
 
 On the account details page, users can choose to delete their account by clicking the "Delete" button.
 
+- **F#07 Contact me (using US#10)**
+
+On the Contact me page the users can send a message to the site admin to clarify questions or report any issues. The contact form has a subject and a message field. The message is sent as soon as the user hits the submit button and a feedback message is displayed to the user.
+
 These features and pages collectively enhance the usability and functionality of the app, providing users with a seamless experience for managing tasks and personal account settings.
 
 ### Prioritization of Feature Development
@@ -124,14 +135,43 @@ Below you can find a table listing the features and the correspond prioritizatio
 | F#02: List of Tasks (includes update and delete tasks) | Must Have | Core functionality |
 | F#03: Filter Tasks (by complete and incomplete)|Must Have|Core functionality|
 | F#04: Register & Login | Must Have | Core functionality |
-| F#05: Update Account | Should Have | Should have but not implemented due to time constraints - next iteration |
-| F#06: Delete Account | Should Have | Should have but not implemented due to time constraints - next iteration |
-| Contact form | Could have | Additional functionality that doesn't compromise the app goal |
+| F#05: Update Account | Should Have | User profile management |
+| F#06: Delete Account | Should Have | User profile management |
+| F#07: Contact form | Should have | Should have as an extra module |
 
 ### Features to be implemented
-A new module with a contact form should be implemented in a future release.
-The accounut management module.
-The access control module.
+
+- Reminders and Notifications:
+Set reminders and notifications for tasks.
+Options for email, push notifications, and calendar integration.
+
+- Task Priority and Urgency:
+Ability to assign priorities (e.g., high, medium, low) to tasks.
+Highlight or flag urgent tasks.
+
+- Task Dependencies:
+Define task dependencies and relationships (e.g., task A must be completed before task B).
+Visualize dependencies in a Gantt chart or similar format.
+
+- Recurring Tasks:
+Create recurring tasks (e.g., daily, weekly, monthly).
+Specify the recurrence pattern and end dates.
+
+- Task Collaboration:
+Share tasks or projects with team members.
+Assign tasks to specific users and track their progress.
+
+- Notes and Attachments:
+Add notes, comments, or attachments to tasks.
+Store relevant documents or links related to tasks.
+
+- Time Tracking: 
+Record time spent on tasks.
+Generate time reports or charts for analysis.
+
+- Goal Setting and Planning:
+Set long-term goals and break them down into tasks.
+Visualize progress toward goals.
 
 ## Technologies
 
