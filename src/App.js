@@ -12,7 +12,7 @@ import "./App.css";
 import SignInForm from "./pages/auth/SignInForm";
 import SignUpForm from "./pages/auth/SignUpForm";
 import Profile from "./pages/Profile";
-import Contact from "./pages/Contact";
+//import Contact from "./pages/Contact";
 import axios from "./api/axiosInstance";
 
 function App() {
